@@ -1,11 +1,20 @@
-package com.example.demo.models;
+package com.example.demo2.models;
+
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 public class Personaje {
+	@NotEmpty (message = "Completar el nombre del personaje")
 	private String nombres;
+	
+	@Size (min = 5, message="El alias debe contener al menos 5 caracteres")
+	@NotEmpty (message="Completar el alias del personaje")
 	private String alias;
 	private String tipoFruta;
 	private String habilidad;
 	private String tripulacion;
+	
+	@NotEmpty (message = "Indicar la recompensa del personaje")
 	private String recompensa;
 	
 	
