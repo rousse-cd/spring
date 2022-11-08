@@ -18,11 +18,11 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link"
-					th:href="@{/app/home}">Inicio <span class="sr-only">(current)</span></a>
-				</li>
-				<li class="nav-item"><a class="nav-link" th:href="@{/app/listar}">Lista
-						Personaje</a></li>
+				<li class="nav-item active"><a class="nav-link" href="#">Inicio
+						<span class="sr-only">(current)</span>
+				</a></li>
+				<li class="nav-item"><a class="nav-link"
+					th:href="@{/app/listar}">Lista Personaje</a></li>
 
 				<li class="nav-item"><a class="nav-link"
 					th:href="@{/app/crear}">Crear Personaje</a></li>
@@ -41,45 +41,13 @@
 			<h1 class="display-4" th:text="${titulo}"></h1>
 			<br>
 			<p class="lead" th:text="${mensaje}"></p>
-
 			<hr class="my-4">
-			<div class="junmbotron">
-				<div class="list-group mt-2" th:each="personaje: ${listita}">
-					
-
-						<div class="card" style="width: 18rem;">
-							<img src="..." class="card-img-top" alt="...">
-							<div class="card-body">
-								<h5 class="card-title" th:text="${personaje.nombres}"></h5>
-
-								<ul class="list-group list-group-flush">
-									<li class="list-group-item" th:text="${personaje.alias}"></li>
-									<li class="list-group-item" th:text="${personaje.tipoFruta}"></li>
-									<li class="list-group-item" th:text="${personaje.habilidad}"></li>
-									<li class="list-group-item" th:text="${personaje.tripulacion}"></li>
-									<li class="list-group-item" th:text="${personaje.recompensa}"></li>
-								</ul>
-
-								<!--  <p class="card-text">Some quick example text to build on the
-									card title and make up the bulk of the card's content.</p>-->
-								<a href="#" class="btn btn-success">Editar</a> <a href="#"
-									class="btn btn-danger">Eliminar</a>
-							</div>
-						</div>
-				</div>
+			<div class="jumbotron">
+				<img style="Width: 100%" alt="Spring Framework" src="/images/2.jpg">
 			</div>
 
 		</div>
 	</div>
-
-
-
-
-
-
-
-
-
 
 	<script src="/boostrap/bootstrap.jquery.slim.min.js"></script>
 	<script src="/boostrap/bootstrap.bundle.min.js"></script>

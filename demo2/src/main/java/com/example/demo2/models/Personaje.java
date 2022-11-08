@@ -1,9 +1,21 @@
 package com.example.demo2.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+@Entity
+@Table(name = "tb_personaje")
 public class Personaje {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int idPersonaje;
+	
 	@NotEmpty (message = "Completar el nombre del personaje")
 	private String nombres;
 	
@@ -17,7 +29,22 @@ public class Personaje {
 	@NotEmpty (message = "Indicar la recompensa del personaje")
 	private String recompensa;
 	
+	@NotEmpty (message = "Indicar el enlace de la imagen del personaje")
+	private String uriImagen;
 	
+	
+	public int getIdPersonaje() {
+		return idPersonaje;
+	}
+	public void setIdPersonaje(int idPersonaje) {
+		this.idPersonaje = idPersonaje;
+	}
+	public String getUriImagen() {
+		return uriImagen;
+	}
+	public void setUriImagen(String uriImagen) {
+		this.uriImagen = uriImagen;
+	}
 	public String getNombres() {
 		return nombres;
 	}

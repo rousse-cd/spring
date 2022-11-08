@@ -18,7 +18,6 @@ import com.example.demo2.models.Personaje;
 import com.example.demo2.models.Response;
 import com.example.demo2.services.IPersonajeServices;
 
-
 @Controller
 @RequestMapping("/app")
 public class HomeController {
@@ -68,11 +67,13 @@ public class HomeController {
 	}
 	
 	@GetMapping({"/listar" })
-	public String ListarPersonaje(Model model) {
+	public String ListarPersonajes(Model model) {
 		model.addAttribute("TituloPagina", titlePage);
 		model.addAttribute("titulo","Seccion J98");
 		model.addAttribute("mensaje",mensaje);
+		
 		Response<Personaje> rspta = InterfacePersonaje1.listarPersonaje();
+		
 		model.addAttribute("listita", rspta.getData());
 		
 		return "Lista";
@@ -108,11 +109,13 @@ public class HomeController {
 		//Logica de creacion de personaje
 		Response<Personaje> rspta= InterfacePersonaje1.crearPersonaje(Luffy);
 		
-		model.addAttribute("listita", rspta.getData());
-		model.addAttribute("TituloPagina", titlePage);
-		model.addAttribute("titulo","Seccion J98 - Personaje Creado");
+		if(rspta.getEstado()) {
+			return "redirect:Lista";
+		}else {
+			model.addAttribute("mensaje", rspta.getMensaje());
+			return "redirect:Error";
+		}
 		
-		return "Home";
 	}
 	
 

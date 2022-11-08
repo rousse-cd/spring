@@ -21,7 +21,7 @@
 				<li class="nav-item active"><a class="nav-link"
 					th:href="@{/app/home}">Inicio <span class="sr-only">(current)</span></a>
 				</li>
-				<li class="nav-item"><a class="nav-link" th:href="@{/app/listar}">Lista
+				<li class="nav-item"><a class="nav-link" th:href="#">Lista
 						Personaje</a></li>
 
 				<li class="nav-item"><a class="nav-link"
@@ -45,7 +45,7 @@
 			<hr class="my-4">
 			<div class="junmbotron">
 				<div class="list-group mt-2" th:each="personaje: ${listita}">
-					
+					<li class="list-group-item">
 
 						<div class="card" style="width: 18rem;">
 							<img src="..." class="card-img-top" alt="...">
@@ -66,6 +66,13 @@
 									class="btn btn-danger">Eliminar</a>
 							</div>
 						</div>
+
+					</li>
+					<li class="list-group-item" th:text="${personaje.alias}"></li>
+					<li class="list-group-item" th:text="${personaje.tipoFruta}"></li>
+					<li class="list-group-item" th:text="${personaje.habilidad}"></li>
+					<li class="list-group-item" th:text="${personaje.tripulacion}"></li>
+					<li class="list-group-item" th:text="${personaje.recompensa}"></li>
 				</div>
 			</div>
 
